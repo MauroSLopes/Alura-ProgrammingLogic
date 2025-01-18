@@ -1,17 +1,22 @@
 alert("Welcome to the game of the Secret Number!");
-const secretNumber = Math.round(Math.random() * 100); 
+let maxNumber = 5000;
+let tryCounter = 0;
+const secretNumber = Math.round(Math.random() * maxNumber); 
 
-let newNumber = prompt("Enter a number between 0 and 100:");
+let newNumber = prompt(`Enter a number between 0 and ${maxNumber}:`);
 
 while(!(secretNumber == newNumber)){
-    
+    tryCounter++;
+
     if (secretNumber < newNumber){
-        newNumber = prompt(`The secret number is less. Enter a new number:`);
+        newNumber = prompt(`The secret number is less than ${newNumber}. Enter a new number:`);
         continue;
     }
 
     if (secretNumber > newNumber){
-        newNumber = prompt(`The secret number is more. Enter a new number:`);
+        newNumber = prompt(`The secret number is more ${newNumber}. Enter a new number:`);
         continue;
     }
 }
+
+alert(`Congratulations, you won in ${tryCounter} tries!`);
